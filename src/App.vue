@@ -1,30 +1,36 @@
-<template>
+<<template>
   <div>
-    <h1>{{ text }}</h1>
-    <button @click="ChangeMood()">Click to change.</button>
+    <div>
+      <h1>Participants list</h1>
+      <ol v-if="participants.length() > 0 ">
+        <li :key="number" v-for="number in participants">{{}}</li>
+      </ol>
+    </div>
+
+    <h3>New participant</h3>
+    <form @submit.prevent="addNewParticipant()">
+      <label>Firstname</label>
+      <input type="text">
+      <label>Lastname</label>
+      <input type="text">
+      <button>Add new participant</button>
+    </form>
   </div>
 </template>
 
 <script>
   export default {
     data() {
-      return {happy: false,
-        text: 'Sad :('
-      }
+      return {
+        participants:[]
+      };
     },
     methods: {
-      Increment() {
-        this.title = 'Clicked';
-        this.count = this.count+1;
-      },
-      Reset() {
-        this.count = 0;
-      },
-      ChangeMood() {
-        this.happy=!this.happy;
-        this.text=this.happy ? 'Happy :)' : 'Sad :(';
+      addNewParticipant() {
+        this.participant.push();
       }
     }
   };
 </script>
+
 
