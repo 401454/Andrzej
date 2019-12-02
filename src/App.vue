@@ -1,16 +1,15 @@
 <template>
   <div>
-    <h1>Clicked {{ count }} times.</h1>
-    <button @click="Increment()">Click me!</button>
-    <button @click="Reset">Click to reset.</button>
+    <h1>{{ text }}</h1>
+    <button @click="ChangeMood()">Click to change.</button>
   </div>
 </template>
 
 <script>
   export default {
     data() {
-      return {title: 'Not clicked yet',
-      count: 0
+      return {happy: false,
+        text: 'Sad :('
       }
     },
     methods: {
@@ -20,6 +19,10 @@
       },
       Reset() {
         this.count = 0;
+      },
+      ChangeMood() {
+        this.happy=!this.happy;
+        this.text=this.happy ? 'Happy :)' : 'Sad :(';
       }
     }
   };
